@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{{ object.name }}</h1>
+    <h2>Счета</h2>
+    <ul>
+    {% for account in object.account_set.all %}
+        <li>{{ account.number }} - {{ account.account_type }}</li>
+    {% endfor %}
+    </ul>
+    <h2>Кредиты</h2>
+    <ul>
+    {% for credit in object.account_set.all %}
+        <li>{{ credit.sum }} - {{ credit.date }}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
